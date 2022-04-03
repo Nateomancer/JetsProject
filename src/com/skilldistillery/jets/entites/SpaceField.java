@@ -5,36 +5,34 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
-import com.skilldistillery.jets.entites.SpaceField;
 import com.skilldistillery.jets.entites.Ship;
-
+import com.skilldistillery.jets.app.ShipApplication;
 
 //airField
 public class SpaceField {
 	// encapsulated
 	// empty array of ships
-	private ArrayList<Ship> fleet;
+	private List<Ship> fleet = new ArrayList<>();
 
-	public ArrayList<Ship> getFleet() {
+
+	public List<Ship> getFleet() {
 		return fleet;
 	}
 
-
-	public void setFleet(ArrayList<Ship> fleet) {
+	public void setFleet(List<Ship> fleet) {
 		this.fleet = fleet;
 	}
+
 //--METHODS--
-	//toString
 	@Override
 	public String toString() {
-		return "SpaceField Fleet=" + fleet;
-		
+		return "SpaceField [fleet=" + fleet + "]";
 	}
 	
-	public void displayFleet() {
-		String fleetInventory=toString();
-		System.out.println(fleetInventory);
-	}
+		
+		
+	
+
 //Reads Jets.txt
 //Instantiates Ships
 	public void populateSpaceField() {
@@ -45,45 +43,42 @@ public class SpaceField {
 			String lineJets;
 			// continues until null
 			int i = 0;
+
 			while ((lineJets = reader.readLine()) != null) {
 				// line counter
-				i++;
 
-				// reader
-				System.out.println("READER");
-				System.out.println("Line " + i + " " + lineJets);
-				System.out.println("-----------------------------------------------------------------------");
-
-				System.out.println("---Printing AFTER SPLIT---");
 				// check for string containing
 				// split sting into 5 strings
 				// call constructor
-				if (lineJets.contains("Imperial-Cruiser")) {
 
-					String[] strSplitter = lineJets.split(",", 5);
+				String[] strSplitter = lineJets.split(",");
+
+				if (strSplitter[0].contains("Imperial-Cruiser")) {
+
+					// String[] strSplitter = lineJets.split(",");
+					System.out.println(strSplitter[0]);
 					Ship imperialShip = new ImperialShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
-					fleet.add(imperialShip);
 
-					System.out.println("-----------------------------------------------------------------------");
+					fleet.add(imperialShip);
 
 				} else if (lineJets.contains("Imperial-Fighter")) {
 
-					String[] strSplitter = lineJets.split(",", 5);
+					// String[] strSplitter = lineJets.split(",");
 					Ship imperialShip = new ImperialShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 					fleet.add(imperialShip);
 
 				} else if (lineJets.contains("Freighter-Ship")) {
 
-					String[] strSplitter = lineJets.split(",", 5);
+					// String[] strSplitter = lineJets.split(",");
 					Ship FreighterShip = new FreighterShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 					fleet.add(FreighterShip);
 
 				} else if (lineJets.contains("Rebel-Fighter")) {
 
-					String[] strSplitter = lineJets.split(",", 5);
+					// String[] strSplitter = lineJets.split(",");
 					Ship RebelFighter = new RebelFighter(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 					fleet.add(RebelFighter);

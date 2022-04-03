@@ -72,4 +72,11 @@ public abstract class Ship {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		return "Model: "+  model+" Ship Speed: "+ speed + " Range: " + range + " Price: " + price;
+	}
+
+
 }
+
