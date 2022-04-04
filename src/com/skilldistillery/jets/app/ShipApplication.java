@@ -105,7 +105,7 @@ public class ShipApplication {
 		System.out.println("|  Enter F DeathStar Assault     |");
 		System.out.println("|  Enter G Hoth Assault          |");
 		System.out.println("|  Enter H Add New Ship          |");
-		System.out.println("|  Enter IA Remove Ship          |");
+		System.out.println("|  Enter I Remove Ship          |");
 		System.out.println("|  Enter Q  Exit                 |");
 		System.out.println("|                                |");
 		System.out.println("==================================");
