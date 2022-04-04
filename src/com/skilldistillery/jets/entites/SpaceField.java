@@ -14,7 +14,6 @@ public class SpaceField {
 	// empty array of ships
 	private List<Ship> fleet = new ArrayList<>();
 
-
 	public List<Ship> getFleet() {
 		return fleet;
 	}
@@ -28,10 +27,6 @@ public class SpaceField {
 	public String toString() {
 		return "SpaceField [fleet=" + fleet + "]";
 	}
-	
-		
-		
-	
 
 //Reads Jets.txt
 //Instantiates Ships
@@ -42,8 +37,6 @@ public class SpaceField {
 
 			String lineJets;
 			// continues until null
-			int i = 0;
-
 			while ((lineJets = reader.readLine()) != null) {
 				// line counter
 
@@ -55,7 +48,6 @@ public class SpaceField {
 
 				if (strSplitter[0].contains("Imperial-Cruiser")) {
 
-					// String[] strSplitter = lineJets.split(",");
 					System.out.println(strSplitter[0]);
 					Ship imperialShip = new ImperialShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));

@@ -51,21 +51,24 @@ public class ShipApplication {
 				appMain.listFleet(appField.getFleet());
 				break;
 			case 'B':
-				appMain.flyShips();
+				appMain.flyShips(appField.getFleet());
 				break;
 			case 'C':
-				appMain.shipWithLongestRange();
+				appMain.shipSpeed(appField.getFleet());
 				break;
 			case 'D':
-				appMain.loadCargoShip();
+				appMain.shipWithLongestRange(appField.getFleet());
 				break;
 			case 'E':
-				appMain.fightersEngage();
+				appMain.loadCargoShip();
 				break;
 			case 'F':
-				appMain.addNewShip();
+				appMain.fightersEngage();
 				break;
 			case 'G':
+				appMain.addNewShip();
+				break;
+			case 'H':
 				appMain.removeShip();
 				break;
 			case 'Q':
@@ -86,6 +89,7 @@ public class ShipApplication {
 
 	}
 
+	// ----------------------METHODS-------------------------
 	private void printMenu() {
 
 		System.out.println();
@@ -107,26 +111,117 @@ public class ShipApplication {
 
 	private void listFleet(List<Ship> fleet) {
 
-		List<Ship> display = fleet;
+		List<Ship> displayFleet = fleet;
 
-		for (Ship ships : display) {
+		// counter
+		int i = 1;
 
-			System.out.println(ships);
+		for (Ship ships : displayFleet) {
+			System.out.println("-----------------------------------------------------------------------------");
+			System.out.println("Index: " + i + " " + ships);
+			System.out.println("-----------------------------------------------------------------------------");
+			i++;
 		}
 
 	}
 
-	private void removeShip() {
+	private void flyShips(List<Ship> fleet) {
 		// TODO Auto-generated method stub
+		// Fly all Jets calls the fly() method on the entire fleet of jets.
+		// fly() prints out the jet details and the amount of
+		// time the jet can fly until it runs out of fuel (based on speed and range).
+		List<Ship> flyFleet = fleet;
+
+		// int[] range = new int[flyFleet.size()];
+		int i = 0;
+		int range = 0;
+		double speed = 0;
+		double flightTime = 0;
+		for (Ship ships : flyFleet) {
+
+			speed = (double) flyFleet.get(i).getSpeed();
+			range = flyFleet.get(i).getRange();
+			flightTime = (range / speed);
+			System.out.println("-----------------------------------------------------------------------------");
+			System.out.println("Index: " + i + " " + ships);
+			System.out.println("-----------------------------------------------------------------------------");
+			System.out.println("Launches, and light speed ahead!");
+			System.out.println("Max Flight time: " + flightTime);
+			System.out.println("-----------------------------------------------------------------------------");
+			i++;
+
+			// Darth Vader Noises
+			// R2D2
+			// Luke Skywalker
+			// Tie Fighter sounds
+			// Chewy Growl
+		}
+
+	}
+
+	private void shipSpeed(List<Ship> fleet) {
+		
+		
+		Ship fastestShip = null;
+		double speed = 0;
+		double maxSpeed = 0;
+		for (Ship ships : shipSpeed) {
+			speed = (double) flyFleet.get(i).getSpeed();
+			speed = (double) shipRangeSpeed.get(i).getSpeed();
+			
+
+			if (speed < maxSpeed) {
+				speed = maxSpeed;
+				
+				fastestShip = shipRangeSpeed.get(i);
+		
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("                  ***FASTEST SHIP IN THE GALAXY***                           ");
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Fastestship: " + fastestShip);
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Speed: " + maxSpeed);
+		System.out.println("Wooooooooow, thats like, so fast!");
+		System.out.println("-----------------------------------------------------------------------------");
+		
+	}
+
+	private void shipWithLongestRange(List<Ship> fleet) {
+		//// The view fastest jet and longest range options both print out all of the
+		//// information about a jet.
+		// Note: these methods must search the collection of jets to find the
+		// appropriate jet.
+		List<Ship> shipRange = fleet;
+
+		int i = 0;
+		double currentMaxRange = 0;
+		double newMaxRange = 0;
+		Ship shipLongestRange = null;
+
+		for (Ship ships : shipRange) {
+
+			currentMaxRange = (double) shipRange.get(i).getSpeed();
+
+			if (currentMaxRange < newMaxRange) {
+				currentMaxRange = newMaxRange;
+
+			}
+
+		}
+
+		System.out.println("");
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("               ***SHIP WITH THE MOST RANGE IN THE GALAXY***               ");
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Fastestship: " + fastestShip);
+		System.out.println("-----------------------------------------------------------------------------");
+		System.out.println("Speed: " + maxSpeed);
+		System.out.println("Wooooooooow, it can like, go so far!!");
+		System.out.println("-----------------------------------------------------------------------------");
 
 	}
 
 	private void addNewShip() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void fightersEngage() {
 		// TODO Auto-generated method stub
 
 	}
@@ -136,16 +231,13 @@ public class ShipApplication {
 
 	}
 
-	private void shipWithLongestRange() {
+	private void fightersEngage() {
 		// TODO Auto-generated method stub
 
 	}
 
-	private void flyShips() {
-		// TODO Auto-generated method stub
+	private void removeShip() {
 
 	}
-
-	// ----------------------METHODS-------------------------
 
 }

@@ -74,9 +74,7 @@ public abstract class Ship {
 
 	@Override
 	public String toString() {
-		return "Model: "+  model+" Ship Speed: "+ speed + " Range: " + range + " Price: " + price;
+		return "Model Ship: " + model + " Speed: " + speed + " Range: " + range + " Price: " + price;
 	}
 
-
 }
-
