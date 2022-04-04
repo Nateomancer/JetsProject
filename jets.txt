@@ -1,4 +1,4 @@
-Imperial-Fighter,Star-Destroyer,950,1000000,10000000
+Imperial-Cruiser,Star-Destroyer,950,800000,1000000
 Imperial-Fighter,Lambda-Class-Shuttle,452,50000,500000
 Imperial-Fighter,TIE-Fighter,746,30000,110000
 Imperial-Fighter,TIE-Interceptor,780,25000,125000

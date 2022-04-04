@@ -14,6 +14,7 @@ public class SpaceField {
 	// empty array of ships
 	private List<Ship> fleet = new ArrayList<>();
 
+
 	public List<Ship> getFleet() {
 		return fleet;
 	}
@@ -27,6 +28,10 @@ public class SpaceField {
 	public String toString() {
 		return "SpaceField [fleet=" + fleet + "]";
 	}
+	
+		
+		
+	
 
 //Reads Jets.txt
 //Instantiates Ships

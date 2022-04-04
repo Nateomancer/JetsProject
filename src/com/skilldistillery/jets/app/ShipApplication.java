@@ -1,18 +1,17 @@
 package com.skilldistillery.jets.app;
 
-//input/output to text
-//import java.io.BufferedReader;
-//import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileReader;
 //Exceptions
-//import java.io.IOException;
+import java.io.IOException;
 //iterator
-//import java.util.Iterator;
+import java.util.Iterator;
 //lists
 import java.util.List;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
-//set
+
 //import java.util.Set;
 //import java.util.TreeSet;
 
@@ -57,7 +56,7 @@ public class ShipApplication {
 				appMain.shipSpeed(appField.getFleet());
 				break;
 			case 'D':
-				appMain.shipWithLongestRange(appField.getFleet());
+				appMain.maxShipRange(appField.getFleet());
 				break;
 			case 'E':
 				appMain.loadCargoShip();
@@ -132,7 +131,6 @@ public class ShipApplication {
 		// time the jet can fly until it runs out of fuel (based on speed and range).
 		List<Ship> flyFleet = fleet;
 
-		// int[] range = new int[flyFleet.size()];
 		int i = 0;
 		int range = 0;
 		double speed = 0;
@@ -150,74 +148,78 @@ public class ShipApplication {
 			System.out.println("-----------------------------------------------------------------------------");
 			i++;
 
-			// Darth Vader Noises
-			// R2D2
-			// Luke Skywalker
-			// Tie Fighter sounds
-			// Chewy Growl
 		}
 
 	}
 
 	private void shipSpeed(List<Ship> fleet) {
-		
-		
-		Ship fastestShip = null;
-		double speed = 0;
-		double maxSpeed = 0;
-		for (Ship ships : shipSpeed) {
-			speed = (double) flyFleet.get(i).getSpeed();
-			speed = (double) shipRangeSpeed.get(i).getSpeed();
-			
 
-			if (speed < maxSpeed) {
-				speed = maxSpeed;
-				
-				fastestShip = shipRangeSpeed.get(i);
-		
+		int i = 0;
+		int maxIndex = 0;
+		int speed = 0;
+		int newMaxSpeed = 0;
+		List<Ship> shipSpeed = fleet;
+
+		for (Ship ships : shipSpeed) {
+
+			speed = shipSpeed.get(i).getRange();
+
+			if (speed > newMaxSpeed) {
+				newMaxSpeed = speed;
+				maxIndex = i;
+
+			}
+			i++;
+		}
+
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("                  ***FASTEST SHIP IN THE GALAXY***                           ");
 		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("Fastestship: " + fastestShip);
+		System.out.println("Fastest Ship: " + shipSpeed.get(maxIndex));
 		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("Speed: " + maxSpeed);
+		System.out.println("Speed: " + newMaxSpeed);
 		System.out.println("Wooooooooow, thats like, so fast!");
 		System.out.println("-----------------------------------------------------------------------------");
-		
+
 	}
 
-	private void shipWithLongestRange(List<Ship> fleet) {
+	private void maxShipRange(List<Ship> fleet) {
 		//// The view fastest jet and longest range options both print out all of the
 		//// information about a jet.
 		// Note: these methods must search the collection of jets to find the
 		// appropriate jet.
-		List<Ship> shipRange = fleet;
-
 		int i = 0;
-		double currentMaxRange = 0;
-		double newMaxRange = 0;
-		Ship shipLongestRange = null;
+		int maxIndex = 0;
+		int range = 0;
+		int newMaxRange = 0;
+		List<Ship> shipRange = fleet;
 
 		for (Ship ships : shipRange) {
 
-			currentMaxRange = (double) shipRange.get(i).getSpeed();
+			range = shipRange.get(i).getRange();
 
-			if (currentMaxRange < newMaxRange) {
-				currentMaxRange = newMaxRange;
+			if (range > newMaxRange) {
+				newMaxRange = range;
+				maxIndex = i;
 
 			}
-
+			i++;
 		}
-
+		System.out.println(newMaxRange + " " + i + "  " + maxIndex);
+		System.out.println(shipRange.get(maxIndex));
 		System.out.println("");
-		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("               ***SHIP WITH THE MOST RANGE IN THE GALAXY***               ");
-		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("Fastestship: " + fastestShip);
-		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("Speed: " + maxSpeed);
+		System.out
+				.println("------------------------------------------------------------------------------------------");
+		System.out.println("               ***SHIP WITH THE MOST RANGE IN THE GALAXY***");
+		System.out
+				.println("------------------------------------------------------------------------------------------");
+		System.out.println("Ship with longest range: " + shipRange.get(maxIndex));
+		System.out
+				.println("------------------------------------------------------------------------------------------");
+		System.out.println("Range: " + newMaxRange);
 		System.out.println("Wooooooooow, it can like, go so far!!");
-		System.out.println("-----------------------------------------------------------------------------");
+		System.out
+				.println("------------------------------------------------------------------------------------------");
 
 	}
 
