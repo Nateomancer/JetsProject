@@ -18,6 +18,7 @@ import com.skilldistillery.jets.entites.FreighterShip;
 import com.skilldistillery.jets.entites.ImperialShip;
 import com.skilldistillery.jets.entites.RebelFighter;
 import com.skilldistillery.jets.entites.Ship;
+import com.skilldistillery.jets.entites.SpaceCraft;
 
 public class ShipApplication {
 
@@ -28,11 +29,7 @@ public class ShipApplication {
 		ShipApplication appMain = new ShipApplication();
 		SpaceField appField = new SpaceField();
 
-//		appField.populateSpaceField();
-//		System.out.println(appField.getFleet().size());
-
 		appField.populateSpaceField();
-		System.out.println(appField.getFleet().size());
 
 		// Keeps program running
 		// terminates when user quits
@@ -66,11 +63,14 @@ public class ShipApplication {
 				appMain.destroyDeathStar(appField.getFleet());
 				break;
 			case 'G':
+				appMain.hothAssault(appField.getFleet());
+				break;
+			case 'H':
 				// appField.getFleet(),
 				appMain.addNewShip(appField.getFleet());
 
 				break;
-			case 'H':
+			case 'I':
 				appMain.removeShip(appField.getFleet());
 				break;
 			case 'Q':
@@ -102,9 +102,10 @@ public class ShipApplication {
 		System.out.println("|  Enter C Fastest Ship          |");
 		System.out.println("|  Enter D Longest Range         |");
 		System.out.println("|  Enter E Load Cargo            |");
-		System.out.println("|  Enter F DeathStar  Assault    |");
-		System.out.println("|  Enter G Add New Ship          |");
-		System.out.println("|  Enter H Remove Ship           |");
+		System.out.println("|  Enter F DeathStar Assault     |");
+		System.out.println("|  Enter G Hoth Assault          |");
+		System.out.println("|  Enter H Add New Ship          |");
+		System.out.println("|  Enter IA Remove Ship          |");
 		System.out.println("|  Enter Q  Exit                 |");
 		System.out.println("|                                |");
 		System.out.println("==================================");
@@ -140,20 +141,22 @@ public class ShipApplication {
 		int range = 0;
 		double speed = 0;
 		double flightTime = 0;
+		String shipName = null;
 		for (Ship ships : flyFleet) {
 
+			shipName = flyFleet.get(i).getModel();
 			speed = (double) flyFleet.get(i).getSpeed();
 			range = flyFleet.get(i).getRange();
 			flightTime = (range / speed);
 			System.out.println("-----------------------------------------------------------------------------");
-			System.out.println("Index: " + i + " " + ships);
-			System.out.println("-----------------------------------------------------------------------------");
-			System.out.println("Launches, and light speed ahead!");
+			System.out.println(shipName + " launches, and light speed ahead!");
 			System.out.println("Max Flight time: " + flightTime);
+			System.out.println("Speed: " + speed + " Range: " + range);
 			if (ships instanceof RebelFighter && ships.getModel().contains("X-Wing")) {
 				System.out.println("Rouge leader, standing by");
 				System.out.println("R2D2 NOISES");
 			}
+
 			System.out.println("-----------------------------------------------------------------------------");
 			i++;
 
@@ -186,7 +189,7 @@ public class ShipApplication {
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("Fastest Ship: " + shipSpeed.get(maxIndex));
 		System.out.println("-----------------------------------------------------------------------------");
-		System.out.println("Speed: " + newMaxSpeed);
+		System.out.println("Speed: " + newMaxSpeed + " Light Years Per Hour");
 		System.out.println("Wooooooooow, thats like, so fast!");
 		System.out.println("-----------------------------------------------------------------------------");
 
@@ -214,7 +217,7 @@ public class ShipApplication {
 			}
 			i++;
 		}
-		System.out.println(newMaxRange + " " + i + "  " + maxIndex);
+
 		System.out.println(shipRange.get(maxIndex));
 		System.out.println("");
 		System.out
@@ -225,7 +228,7 @@ public class ShipApplication {
 		System.out.println("Ship with longest range: " + shipRange.get(maxIndex));
 		System.out
 				.println("------------------------------------------------------------------------------------------");
-		System.out.println("Range: " + newMaxRange);
+		System.out.println("Range: " + newMaxRange + " LightYears");
 		System.out.println("Wooooooooow, it can like, go so far!!");
 		System.out
 				.println("------------------------------------------------------------------------------------------");
@@ -248,7 +251,7 @@ public class ShipApplication {
 		System.out.println("|  Enter A Add Imperial Ship     |");
 		System.out.println("|  Enter B Add Freighter Ship    |");
 		System.out.println("|  Enter C Add Rebel Ship        |");
-		System.out.println("|  Enter D Add Space Ship        |");
+		System.out.println("|  Enter D Add Space Craft       |");
 		System.out.println("|                                |");
 		System.out.println("==================================");
 		System.out.println("**What kind of ship do you want to add?**");
@@ -304,11 +307,17 @@ public class ShipApplication {
 			break;
 
 		case 'D':
-			// new ship
+			System.out.println("Enter Ship Model");
+			model = input.nextLine();
+			System.out.println("Enter Speed");
+			speed = input.nextDouble();
+			System.out.println("Enter Ship Range");
+			range = input.nextInt();
+			System.out.println("Enter Price");
+			price = input.nextLong();
+			ship = new SpaceCraft(model, speed, range, price);
 			break;
-		case 'E':
-			// quit
-			break;
+
 		default:
 			System.out.println("Invalid Option");
 
@@ -354,6 +363,22 @@ public class ShipApplication {
 			}
 
 		}
+	}
+
+	private void hothAssault(List<Ship> fleet) {
+		List<Ship> imperialFleet = fleet;
+		System.out.println("The Rebel base is on Hoth. Destroy Them!!");
+		for (Ship ship : imperialFleet) {
+			if (ship instanceof ImperialShip) {
+				System.out.println("The " + ship.getModel());
+				((ImperialShip) ship).hothAssault();
+			}
+			
+		}
+		System.out.println(" ");
+		System.out.println("Tie Fighter Noises");
+		System.out.println("Tie Fighter Laser Beam Noises");
+		System.out.println("Gooooooooood");
 	}
 
 	private void destroyDeathStar(List<Ship> fleet) {

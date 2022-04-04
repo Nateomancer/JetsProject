@@ -1,29 +1,29 @@
 package com.skilldistillery.jets.entites;
 
-public class FreighterShip extends Ship implements CargoCarrier {
+public class SpaceCraft extends Ship {
 
 	private double speed;
 	private int range;
 	private long price;
 	private String model;
 
-	public FreighterShip(String model, double speed, int range, long price) {
+	public SpaceCraft(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
-//		this.model = model;
+
 //		this.speed = speed;
 //		this.range = range;
 //		this.price = price;
+//		this.model = model;
+	}
 
+	public SpaceCraft() {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void fly() {
+		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void loadCargo() {
-		System.out.println("***Loading Cargo***");
 	}
 
 }

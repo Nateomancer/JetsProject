@@ -1,16 +1,15 @@
 package com.skilldistillery.jets.entites;
 
-public class ImperialShip extends Ship  {
+public class ImperialShip extends Ship implements HothAssault {
 
 	private double speed;
 	private int range;
 	private long price;
 	private String model;
-	
-	
+
 	public ImperialShip(String model, double speed, int range, long price) {
-		super(model,speed, range, price);
-		
+		super(model, speed, range, price);
+
 //		this.model = model;
 //		this.speed = speed;
 //		this.range = range;
@@ -23,16 +22,12 @@ public class ImperialShip extends Ship  {
 
 	}
 
-	//@Override
-//	public String toString() {
-//		return "ImperialShip model " + getModel() + " "  + getSpeed() +" " + getSpeed() + ", getRange()=" + getRange()
-//				+ ", getPrice()=" + getPrice() + ", toString()=" + super.toString() + ", getClass()=" + getClass()
-//				+ ", hashCode()=" + hashCode() + "]";
-	//}
-	
-	
+	@Override
+	public void hothAssault() {
+		// TODO Auto-generated method stub
+		System.out.println("Inferno Squad Ready to engage Hoth!");
+		System.out.println("For the Empire");
+
+	}
+
 }
-
-	
-
-

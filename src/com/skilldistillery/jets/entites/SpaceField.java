@@ -59,31 +59,27 @@ public class SpaceField {
 
 				String[] strSplitter = lineJets.split(",");
 
-				if (strSplitter[0].contains("Imperial-Cruiser")) {
+				if (strSplitter[0].contains("Imperial-Fighter")) {
 
-					System.out.println(strSplitter[0]);
 					Ship imperialShip = new ImperialShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 
 					fleet.add(imperialShip);
 
-				} else if (lineJets.contains("Imperial-Fighter")) {
+				} else if (lineJets.contains("Space-Craft")) {
 
-					// String[] strSplitter = lineJets.split(",");
-					Ship imperialShip = new ImperialShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
+					Ship spaceCraft = new SpaceCraft(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
-					fleet.add(imperialShip);
+					fleet.add(spaceCraft);
 
 				} else if (lineJets.contains("Freighter-Ship")) {
 
-					// String[] strSplitter = lineJets.split(",");
 					Ship FreighterShip = new FreighterShip(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 					fleet.add(FreighterShip);
 
 				} else if (lineJets.contains("Rebel-Fighter")) {
 
-					// String[] strSplitter = lineJets.split(",");
 					Ship RebelFighter = new RebelFighter(strSplitter[1], Double.parseDouble(strSplitter[2]),
 							Integer.parseInt(strSplitter[3]), Long.parseLong(strSplitter[4]));
 					fleet.add(RebelFighter);

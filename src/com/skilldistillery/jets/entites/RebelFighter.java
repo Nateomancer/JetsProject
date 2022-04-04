@@ -26,8 +26,7 @@ public class RebelFighter extends Ship implements DestroyDeathStar {
 	public void deathStar() {
 		// TODO Auto-generated method stub
 		System.out.println("Briefed and ready for take off");
-		
+
 	}
 
 }
-	

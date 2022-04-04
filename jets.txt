@@ -1,4 +1,4 @@
-Imperial-Cruiser,Star-Destroyer,950,800000,1000000
+Imperial-Fighter,Star-Destroyer,950,1000000,1200000
 Imperial-Fighter,Lambda-Class-Shuttle,452,50000,500000
 Imperial-Fighter,TIE-Fighter,746,30000,110000
 Imperial-Fighter,TIE-Interceptor,780,25000,125000
@@ -10,3 +10,9 @@ Rebel-Fighter,X-Wing,652,50000,15000
 Rebel-Fighter,A-Wing,1052,30000,18000
 Rebel-Fighter,Y-Wing,452,250000,17500
 Rebel-Fighter,B-Wing,551,300000,22000
+Space-Craft,Nostromo,750,650000,1200000
+Space-Craft,The-USG-Ishimura,800,500000,1000000
+Space-Craft,The-Unreliable,300,5000,2000
+Space-Craft,Normandy,900,700000,1500000
+Space-Craft,Ebon-Hawk,750,550000,350000
+Space-Craft,USS-Enterprise,800,800000,500000
