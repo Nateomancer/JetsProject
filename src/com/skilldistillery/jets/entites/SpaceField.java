@@ -5,15 +5,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import com.skilldistillery.jets.entites.Ship;
 import com.skilldistillery.jets.app.ShipApplication;
+import com.skilldistillery.jets.entites.Ship;
 
 //airField
 public class SpaceField {
 	// encapsulated
 	// empty array of ships
 	private List<Ship> fleet = new ArrayList<>();
-
 
 	public List<Ship> getFleet() {
 		return fleet;
@@ -28,10 +29,17 @@ public class SpaceField {
 	public String toString() {
 		return "SpaceField [fleet=" + fleet + "]";
 	}
-	
-		
-		
-	
+
+	public void add(Ship newShip) {
+
+		fleet.add(newShip);
+	}
+
+	public void remove(Ship removeShip) {
+
+		fleet.remove(removeShip);
+
+	}
 
 //Reads Jets.txt
 //Instantiates Ships

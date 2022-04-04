@@ -1,6 +1,6 @@
 package com.skilldistillery.jets.entites;
 
-public class ImperialShip extends Ship {
+public class ImperialShip extends Ship  {
 
 	private double speed;
 	private int range;

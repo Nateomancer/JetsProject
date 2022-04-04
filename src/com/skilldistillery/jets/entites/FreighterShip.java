@@ -1,6 +1,6 @@
 package com.skilldistillery.jets.entites;
 
-public class FreighterShip extends Ship {
+public class FreighterShip extends Ship implements CargoCarrier {
 
 	private double speed;
 	private int range;
@@ -20,6 +20,11 @@ public class FreighterShip extends Ship {
 	@Override
 	public void fly() {
 
+	}
+
+	@Override
+	public void loadCargo() {
+		System.out.println("***Loading Cargo***");
 	}
 
 }
